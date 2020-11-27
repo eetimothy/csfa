@@ -11,7 +11,7 @@ import { NewsComponent } from './components/news.component';
 import { MainComponent } from './components/main.component';
 import { NewsDatabase } from './news.database';
 import { NgnewsModule } from 'angular-news-api';
-import { NewsApiKeyConfig } from 'angular-news-api';
+import { NewsApiKeyConfig, NewsApiService } from 'angular-news-api';
 
 const ROUTES: Routes = [
   { path: '', component: MainComponent },
@@ -40,7 +40,7 @@ const newsApiConfig: NewsApiKeyConfig = {
     HttpClientModule
 
   ],
-  providers: [NewsDatabase],
+  providers: [NewsDatabase, NewsApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

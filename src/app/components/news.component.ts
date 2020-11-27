@@ -3,8 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router'
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { CountryList, NewsArticles } from '../models'
 import { NgNavigatorShareService } from 'ng-navigator-share'
-
-
+import { ApiService } from '../api.service'
+import { NewsDatabase } from '../news.database'
 
 
 @Component({
@@ -23,14 +23,18 @@ export class NewsComponent implements OnInit {
   apiKey = ''
   country = ''
   canShare = false
-
+countryArticles = null;
+  api: any;
   constructor(private router: Router, 
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
     private webShare: NgNavigatorShareService) { }
 
   ngOnInit(): void {
-
+    this.api.getArticles().subscribe((data)=>{
+      this.countryArticles = data;
+      });
+    /*
     this.canShare
     this.country = this.activatedRoute.snapshot.params['country']
     this.apiKey = this.activatedRoute.snapshot.params['apiKey']
@@ -40,7 +44,7 @@ export class NewsComponent implements OnInit {
     this.description = this.activatedRoute.snapshot.params['description']
     
     const url = `http://newsapi.org/v2/top-headlines?country=${this.country}&${this.apiKey}`
-/*
+
     let params = (new HttpParams()).set
     
     this.http.get<any>(url, {params: params})

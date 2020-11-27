@@ -16,7 +16,10 @@
     <div class="col mb-2" style="border-bottom: 1px grey solid"> 
 
     <div class="caption">
-    {{ sr.title }}
+        <a href='#' *ngFor='let country of countryArticles' 
+        [routerLink]="['/news']" class="list-group-item list-group-item-action">
+            {{country.articles}} 
+            </a>
 </div>
 <p>
  

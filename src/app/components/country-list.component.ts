@@ -14,7 +14,7 @@ import { NgNavigatorShareService } from 'ng-navigator-share';
 export class CountryListComponent implements OnInit {
 
   countryData = null;
-  constructor(private api:ApiService, private router: Router, private activatedRoute: ActivatedRoute, 
+  constructor(private api: ApiService, private router: Router, private activatedRoute: ActivatedRoute, 
     private http: HttpClient, private webShare: NgNavigatorShareService,
     private newsDB: NewsDatabase) {}
 
