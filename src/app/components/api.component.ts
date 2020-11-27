@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
+import { NewsDatabase } from '../news.database'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ApiKey } from '../models';
+import { HttpParams, HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-api',
@@ -8,9 +13,27 @@ import { Router } from '@angular/router'
 })
 export class ApiComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder, 
+    private router: Router, 
+   ) { }
 
   ngOnInit(): void {
+    this.form = this.fb.group({
+      q: this.fb.control('', [Validators.required])
+    })
+    
   }
 
+  saveApiKey() {
+    this.router.navigate(['/country-list'])
+  }
+
+  goBack(){
+    this.router.navigate(['/main'])
+  }
+  
+ 
 }
+

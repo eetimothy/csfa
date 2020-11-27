@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router'
+import { HttpParams, HttpClient } from '@angular/common/http';
+
+
+
 
 @Component({
   selector: 'app-news',
@@ -7,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient,) { }
 
   ngOnInit(): void {
+    //this.country = this.activatedRoute.snapshot.params['country']
+    //const url = `https://`
+
   }
 
 }

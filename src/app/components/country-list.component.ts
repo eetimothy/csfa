@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NewsDatabase } from '../news.database'
+import { CountryList, NewsArticles } from '../models'
+import { ApiService } from '../api.service'
 
 @Component({
   selector: 'app-country-list',
@@ -8,9 +11,12 @@ import { Router } from '@angular/router';
 })
 export class CountryListComponent implements OnInit {
 
-  constructor() { }
+  countryData = null;
+  constructor(private api:ApiService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit() {
+    this.api.getCountries().subscribe((data)=>{
+    this.countryData = data;
+});
+}
 }

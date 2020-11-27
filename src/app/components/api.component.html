@@ -3,14 +3,14 @@
 
     </div>
 </div>
-<form [formGroup]="form">
+<form [formGroup]="apiForm">
     <div class="form-group">
         <label for="api"><h3>Settings</h3> <br> NewsAPI.org</label> 
 <input type="text" placeholder="API from newsapi.org" class="form-control" formControlName="q">
 <em>Please enter the API key from newsapi.org</em>
     </div>
         <div>
-            <button type="button" class="btn btn-outline-warning" [routerLink]="['/main']">
+            <button type="button" class="btn btn-outline-warning" (click)="goBack()">
                 BACK
             </button>
             <button type="button" class="btn btn-outline-danger">
@@ -21,13 +21,11 @@
           <div class="row mt-2">
               <div class="col d-flex justify-content-end align-items-center">
                 <button type="button" class="btn btn-light" [disabled]="form.invalid"
-                (click)="saveOptions()">
+                (click)="saveApiKey()">
                     ADD
                 </button>
-                <button type="button" class="btn btn-dark" [disabled]="form.invalid"
-                (click)="gotoResult()">
-                    ADD
-                </button>
+                
+                
               </div>
           </div>
 </form>
