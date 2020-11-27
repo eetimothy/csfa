@@ -1,0 +1,14 @@
+<div class="row mt-3">
+    <div class="col d-flex justify-content-between align-items-center">
+        <h5>Countries</h5>
+        <button type="button" class="btn btn-info btn-sm" [routerLink]="['/api']">
+            SETTINGS
+        </button>
+    </div>
+</div>
+        <ul class="list-group mt-3">
+            <a href="#" *ngFor="let s of searches" [routerLink]="['/search', s.genre, s.q]" class="list-group-item list-group-item-action">
+                {{s.q}} {{s.genre}}
+            </a>
+            
+          </ul>
