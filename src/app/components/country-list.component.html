@@ -7,6 +7,8 @@
     </div>
 </div>
 <ul class="list-group mt-3">
-    <p *ngFor='let country of countryData'>
+    <a href='#' *ngFor='let country of countryData' 
+    [routerLink]="['/news']" class="list-group-item list-group-item-action">
         {{country.name}} 
+        </a>
   </ul>

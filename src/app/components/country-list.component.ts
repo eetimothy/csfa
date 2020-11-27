@@ -15,13 +15,26 @@ export class CountryListComponent implements OnInit {
 
   countryData = null;
   constructor(private api:ApiService, private router: Router, private activatedRoute: ActivatedRoute, 
-    private http: HttpClient, private webShare: NgNavigatorShareService) {}
+    private http: HttpClient, private webShare: NgNavigatorShareService,
+    private newsDB: NewsDatabase) {}
 
   ngOnInit() {
     this.api.getCountries().subscribe((data)=>{
     this.countryData = data;
     });
 
-    
+
+    }
+    getNews(){
+      const url = 'http://newsapi.org/v2/top-headlines?' +
+      'country=us&' +
+      'apiKey=6c4a0fd2f2474a35b6f37ccad5f9d913';
+
+      const req = new Request(url);
+      fetch(req)
+      .then(function(response){
+        console.log(response.json)
+      })
+    }
   }
-}
+

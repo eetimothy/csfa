@@ -1,1 +1,30 @@
 <p>news works!</p>
+<div class="row mt-3 mb-3">
+    <div class="col d-flex justify-content-end align-items-center">
+        <button type="button" class="btn btn-warning btn-sm" [routerLink]="['/country-list']">
+            BACK
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <h4>News</h4>
+    </div>
+</div>
+
+<div class="row" *ngFor="let sr of searchResults; let i =idx">
+    <div class="col mb-2" style="border-bottom: 1px grey solid"> 
+
+    <div class="caption">
+    {{ sr.title }}
+</div>
+<p>
+ 
+</p>
+<div class="d-flex justify-content-end mb-1" *ngIf='canShare'>
+    <button type="button" class="btn btn-outline-dark btn-sm" (click)="shareThis(i)">
+        SHARE
+    </button>
+    </div>
+</div>
+</div>

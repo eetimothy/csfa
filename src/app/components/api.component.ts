@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
 import { NewsDatabase } from '../news.database'
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { ApiKey } from '../models';
 import { HttpParams, HttpClient } from '@angular/common/http';
 
@@ -14,6 +14,7 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 export class ApiComponent implements OnInit {
 
   form: FormGroup;
+  apiArray: FormArray;
 
   constructor(private fb: FormBuilder, 
     private router: Router, private newsDB: NewsDatabase 
@@ -34,6 +35,5 @@ export class ApiComponent implements OnInit {
     this.router.navigate(['/main'])
   }
   
- 
 }
 
