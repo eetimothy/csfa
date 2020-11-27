@@ -24,6 +24,7 @@
     "bootstrap": "^4.5.3",
     "dexie": "^3.0.3",
     "newsapi": "^2.4.1",
+    "ng-navigator-share": "^1.0.4",
     "ng-news-api": "0.0.7",
     "ngx-indexed-db": "^6.1.2",
     "rxjs": "~6.6.0",

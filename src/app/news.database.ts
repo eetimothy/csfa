@@ -4,24 +4,19 @@ import { NewsArticles, ApiKey, CountryList } from './models'
 
 @Injectable()
 export class NewsDatabase extends Dexie {
-    apiKey: any;
-    newArtices: any;
-    countryList: any;
-    saveApiKey(opt: ApiKey) {
-      throw new Error("Method not implemented.");
-    }
-    private news: Dexie.Table<NewsArticles, string>
     
+    private countryList: Dexie.Table<NewsArticles, string>
+    newsArticles: any;
+   
 
     constructor() {
-        super('newsDB')
-
+        super('news')
+        //create shema
         this.version(1).stores({
-            apiKey: "key"
+            // index q
+            newsArticles: "source, author, title, description, url"
         })
-        this.apiKey = this.table('apiKey')
-        this.newArtices = this.table('newsArticles')
-        this.countryList = this.table('countryList')
+        this.newsArticles = this.table('newsArticles')
     }
 
     

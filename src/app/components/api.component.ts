@@ -16,7 +16,7 @@ export class ApiComponent implements OnInit {
   form: FormGroup;
 
   constructor(private fb: FormBuilder, 
-    private router: Router, 
+    private router: Router, private newsDB: NewsDatabase 
    ) { }
 
   ngOnInit(): void {
